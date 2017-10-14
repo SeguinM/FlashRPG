@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+<data>
+	
+	
+	<filename>WeaponList</filename>
+	
+	
+	
+	<!-- RANGED WEAPONS -- HALO -->
+	
+	<weapon id="MA5B" type="ranged">
+		<name>MA5B Assault Rifle</name>
+		<flashEntity>MA5B</flashEntity>
+		<ammo>5.56</ammo>
+		<accuracy>25</accuracy>
+		<damage>5</damage>
+		<shots>10</shots>
+		<magsize>60</magsize>
+	</weapon>
+	
+	
+	
+	<weapon id="EnergySword">
+		
+		<name>Energy Sword</name>
+		<flashEntity></flashEntity>
+		<accuracy>95</accuracy>
+		<damage>45</damage>
+		<strikeCount>1</strikeCount>
+		<projectileCount>1</projectileCount>
+		
+	</weapon>
+	
+	
+	
+</data>

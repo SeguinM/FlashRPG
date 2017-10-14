@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+
+
+<data>
+	
+	<filename>LevelList</filename>
+	
+	<!-- LEVEL 000: MUSHROOM KINGDOM CHUNK A -->
+	<level id="Level000">
+		<file>LevelAtlas000.swf</file>
+		<asset>Level000</asset>
+		<combatBG>Level000_combat</combatBG>
+		
+		<!-- Entity: World random encounter volume 1 -->
+		<entity id="encounterVolume001" type="EncounterVolume" encounterRate="0.3">
+			<enemySet chance="60">
+				<enemy lvl="4" id="Goomba" />
+			</enemySet>
+			<enemySet chance="30">
+				<enemy lvl="3" id="Goomba" />
+				<enemy lvl="3" id="Goomba" />
+			</enemySet>
+			<enemySet chance="10">
+				<enemy lvl="3" id="Goomba" />
+				<enemy lvl="4" id="Goomba" />
+				<enemy lvl="3" id="Goomba" />
+			</enemySet>
+		</entity>
+		
+		<!-- Entity: Master Chief Character -->
+		<entity id="masterChief" type="NewCharacterEntity">
+			<charID level="5">MasterChief</charID>
+			<interaction type="dialogue" id="001_LuigiAndMasterChiefInitial" />
+		</entity>
+		
+		<!-- Entity: Bowser Character -->
+		<entity id="bowser" type="NewCharacterEntity">
+			<charID level="10">Bowser</charID>
+			<interaction type="dialogue" id="002_BowserFirstContact" />
+		</entity>
+		
+		<!-- Entity: Chest 001 -->
+		<entity id="chest_001" type="Chest">
+			<item id="Mushroom" />
+			<item id="Mushroom" />
+			<item id="GreenMushroom" />
+			<money value="200" />
+		</entity>
+		
+	</level>
+
+</data>

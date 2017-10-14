@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+
+
+
+<data>
+	
+	<filename>CharacterList</filename>
+	
+	<!-- LUIGI -->
+	<character id="Luigi">
+		<characterName>Luigi</characterName>
+		<flashEntity>Character_Luigi</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="12" />
+		<ratk min="8" max="12" />
+		<matk min="8" max="12" />
+		<satk min="8" max="12" />
+		<pdef min="8" max="12" />
+		<rdef min="8" max="12" />
+		<mdef min="8" max="12" />
+		<sdef min="8" max="12" />
+		<speed min="8" max="12" />
+		
+		<skill lvl="6">Fireball</skill>
+	</character>
+	
+	<!-- CHUN LI -->
+	<character id="ChunLi">
+		<characterName>Chun Li</characterName>
+		<flashEntity>Character_ChunLi</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="10" max="14" />
+		<ratk min="8" max="12" />
+		<matk min="8" max="12" />
+		<satk min="8" max="12" />
+		<pdef min="8" max="12" />
+		<rdef min="6" max="10" />
+		<mdef min="10" max="14" />
+		<sdef min="8" max="12" />
+		<speed min="8" max="12" />
+	</character>
+	
+	<!-- MASTER CHIEF -->
+	<character id="MasterChief">
+		<characterName>Master Chief</characterName>
+		<flashEntity>Character_MasterChief</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="12" />
+		<ratk min="10" max="14" />
+		<matk min="8" max="12" />
+		<satk min="8" max="12" />
+		<pdef min="10" max="14" />
+		<rdef min="8" max="12" />
+		<mdef min="8" max="12" />
+		<sdef min="6" max="10" />
+		<speed min="8" max="12" />
+	</character>
+	
+	<!-- SAILOR MOON -->
+	<character id="SailorMoon">
+		<characterName>Sailor Moon</characterName>
+		<flashEntity>Character_SailorMoon</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="12" />
+		<ratk min="8" max="12" />
+		<matk min="10" max="14" />
+		<satk min="8" max="12" />
+		<pdef min="6" max="10" />
+		<rdef min="8" max="12" />
+		<mdef min="8" max="12" />
+		<sdef min="10" max="14" />
+		<speed min="8" max="12" />
+	</character>
+	
+	<!-- MEWTWO -->
+	<character id="Mewtwo">
+		<characterName>Mewtwo</characterName>
+		<flashEntity>Character_Mewtwo</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="12" />
+		<ratk min="8" max="12" />
+		<matk min="8" max="12" />
+		<satk min="10" max="14" />
+		<pdef min="8" max="12" />
+		<rdef min="10" max="14" />
+		<mdef min="6" max="10" />
+		<sdef min="8" max="12" />
+		<speed min="8" max="12" />
+	</character>
+	
+	<!-- DUKE NUKEM -->
+	<character id="DukeNukem">
+		<characterName>Duke Nukem</characterName>
+		<flashEntity>Character_DukeNukem</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="12" />
+		<ratk min="8" max="12" />
+		<matk min="8" max="12" />
+		<satk min="8" max="12" />
+		<pdef min="8" max="12" />
+		<rdef min="8" max="12" />
+		<mdef min="8" max="12" />
+		<sdef min="8" max="12" />
+		<speed min="8" max="12" />
+	</character>
+	
+	
+	
+	
+	
+	<!-- ENEMIES -->
+	
+	<!-- GOOMBA -->
+	<character id="Goomba">
+		<characterName>Goomba</characterName>
+		<flashEntity>Character_Goomba</flashEntity>
+		<hp min="30" max="40" />
+		<ap min="20" max="25" />
+		<patk min="8" max="10" />
+		<ratk min="8" max="10" />
+		<matk min="8" max="10" />
+		<satk min="8" max="10" />
+		<pdef min="8" max="10" />
+		<rdef min="8" max="10" />
+		<mdef min="8" max="10" />
+		<sdef min="8" max="10" />
+		<speed min="6" max="7" />
+	</character>
+	
+	<!-- BOWSER -->
+	<character id="Bowser">
+		<characterName>Bowser</characterName>
+		<flashEntity>Character_Bowser</flashEntity>
+		<hp min="40" max="50" />
+		<ap min="20" max="25" />
+		<patk min="7" max="11" />
+		<ratk min="7" max="11" />
+		<matk min="7" max="11" />
+		<satk min="7" max="11" />
+		<pdef min="10" max="14" />
+		<rdef min="10" max="14" />
+		<mdef min="10" max="14" />
+		<sdef min="10" max="14" />
+		<speed min="6" max="10" />
+	</character>
+	
+	
+	
+</data>

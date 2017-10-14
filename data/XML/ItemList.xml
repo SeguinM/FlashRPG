@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<filename>ItemList</filename>
+	
+	
+	<!-- Mario items -->
+	
+	<item id="Mushroom">
+		<name>Mushroom</name>
+		<flashEntity>Mushroom</flashEntity>
+		<description>A commonplace mushroom that heals the user by 50 HP. No effect on KO'd characters.</description>
+	</item>
+	
+	<item id="GreenMushroom">
+		<name>Green Musrhoom</name>
+		<flashEntity>GreenMushroom</flashEntity>
+		<description>A rare mushroom that revives KO'd characters to a quarter of their max HP. No effect on characters who aren't KO'd.</description>
+	</item>
+	
+	
+	
+	
+	<!-- Halo items -->
+	<item id="FragGrenade">
+		<name>Frag Grenade</name>
+		<flashEntity>FragGrenade</flashEntity>
+		<description>A powerful fragmentation grenade used by the UNSC. Deals 30dmg to all enemies.</description>
+	</item>
+
+</data>

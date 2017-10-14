@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	<filename>DialogueList</filename>
+	
+	<!-- When Luigi initially encounters Master Chief -->
+	<dialogue id="001_LuigiAndMasterChiefInitial">
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Hold it. You don't seem like a hostile. What is this place?</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">Mamma Mia! What a strange-a guy! You's inna the Mushroom Kingdom!</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">...This place is like nothing I've ever come across. Very...different.</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">A-ha! You's-a from another world! You must-a be from the big World Portal that-a just opened!</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">...</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Who's in charge around here?</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">That would-a be a the Princess Peach.</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">I need you to take me to see her.</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">Sure thing! But-a be careful, lots of mean Goombas and Koopas today!</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Don't worry, I'm Weapons Ready. Do those things normally attack on sight?</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">Only when-a Bowser is up-a to no good.</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Could this 'Bowser' be behind what's happening here?</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">I don't-a know...</entry>
+		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Only one way to find out. Let's pay him a visit.</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">Ho... This is going to be a long day...</entry>
+		
+		<result type="addNewChar" value="MasterChief" level="5" weapon="MA5B" />
+		<result type="quest" value = "001_TalkToPeach" />
+		<result type="quest" value = "002_TalkToBowser" />
+		<result type="removeFromWorld" value="masterChief" />
+	</dialogue>
+	
+	<!-- When Bowser is first encountered -->
+	<dialogue id="002_BowserFirstContact">
+		<entry side="right" image="Bowser_Dialogue" name="Bowser">Bwaah! Luigi, how dare you attack me!</entry>
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">The Goombas have-a been attacking all morning! What are you up to Bowser?!</entry>
+		<entry side="left" image="MasterChief_Dialogue" name="Master Chief">Put an end to this. Now.</entry>
+		<entry side="right" image="Bowser_Dialogue" name="Bowser">You tresspass and threated me! Prepare yourselves!</entry>
+		
+		<result type="combat">
+			<enemy lvl="10" id="Bowser" />
+		</result>
+		<result type="removeFromWorld" value="bowser" />
+	</dialogue>
+
+</data>
