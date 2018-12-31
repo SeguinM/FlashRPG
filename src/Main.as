@@ -156,6 +156,17 @@
 					partyController.addItem("active", newChar2 as Character);
 					partyController.addItem("active", newChar3 as Character);
 					break;
+				case Keyboard.NUMBER_1:
+					var testChar1:MovieClip = characterDataManager.generateNewCharacter("ChunLi", 5);
+					var testChar2:MovieClip = characterDataManager.generateNewCharacter("MasterChief", 10);
+					var testChar3:MovieClip = characterDataManager.generateNewCharacter("Goomba", 5);
+					partyController.addItem("active", testChar1 as Character);
+					partyController.addItem("active", testChar2 as Character);
+					partyController.addItem("active", testChar3 as Character);
+					
+					//equip weapons
+					(testChar2 as Character).equipWeapon(new Weapon("BR55"));
+					break;
 				case Keyboard.E:
 					//lightingController.setAmbientLight(0x7fd7ff, combatContainer, { alpha: 0.4, blendMode: "multiply" } );
 					uiController.show("battleLog");

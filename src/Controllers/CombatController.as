@@ -671,8 +671,14 @@ package src.Controllers
 			//trace (perpetrator.characterName + " attacked " + defender.characterName + ". " + damage + " damage. " + perpetrator.P_ATK + " attack, " + defender.P_DEF + " defense.");
 			var battleLog:MovieClip = uiController.getUIElement("battleLog");
 			if (battleLog != null)
-				battleLog.generateLog(String(perpetrator.characterName + " attacked " + defender.characterName + ". " + damage + " damage. "));
-			
+			{
+				var suffix:String = "bare-handed";
+				if (perpetrator.equippedWeapon != null)
+				{
+					suffix = "with their " + perpetrator.equippedWeapon.weaponName;
+				}
+				battleLog.generateLog(String(perpetrator.characterName + " attacked " + defender.characterName + " " + suffix + ". " + damage + " damage. "));
+			}
 			defender.dealDamage(damage);
 			
 			//var onCompleteData:Object = { perpetrator: perpetrator, defender: defender };

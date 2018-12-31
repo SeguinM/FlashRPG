@@ -20,6 +20,16 @@
 		<magsize>60</magsize>
 	</weapon>
 	
+	<weapon id="BR55" type="ranged">
+		<name>BR55 Battle Rifle</name>
+		<flashEntity>BR55</flashEntity>
+		<ammo>5.56</ammo>
+		<accuracy>75</accuracy>
+		<damage>10</damage>
+		<shots>3</shots>
+		<magsize>32</magsize>
+	</weapon>
+	
 	
 	
 	<weapon id="EnergySword">

@@ -89,7 +89,14 @@ package src.Entities
 		{
 			if (clip.animWrapper)
 			{
-				clip.animWrapper.gotoAndPlay(anim);
+				try
+				{
+					clip.animWrapper.gotoAndPlay(anim);
+				}
+				catch (error:Error)
+				{
+					trace("Issue playing animation: " + anim);
+				}
 			} // end of if statement
 		} // end of function setAnimState
 		
