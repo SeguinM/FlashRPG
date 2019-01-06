@@ -61,7 +61,7 @@ package src.Utilities
 			
 			for (var i:int = 0; i < loadedXMLs.length; i++)
 			{
-				trace ("LOADED XML: " + loadedXMLs[i]);
+				//trace ("LOADED XML: " + loadedXMLs[i]);
 				
 				if ((loadedXMLs[i] as XML).filename == name)
 				{

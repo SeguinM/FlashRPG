@@ -3,6 +3,11 @@
 	
 	<filename>DialogueList</filename>
 	
+	<!-- Level000 Chunk 000 Part 000 -->
+	<dialogue id="Level000Chunk000Part000">
+		<entry side="left" image="Luigi_Dialogue" name="Luigi">Time-a to go kick-a some ass!</entry>
+	</dialogue>
+	
 	<!-- When Luigi initially encounters Master Chief -->
 	<dialogue id="001_LuigiAndMasterChiefInitial">
 		<entry side="right" image="MasterChief_Dialogue" name="Master Chief">Hold it. You don't seem like a hostile. What is this place?</entry>

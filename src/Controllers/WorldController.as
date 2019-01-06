@@ -7,6 +7,7 @@ package src.Controllers
 	import src.Entities.CharacterEntity;
 	import src.Events.EventWithData;
 	import src.Main;
+	import src.Utilities.DialogueUtility;
 	import src.Utilities.LevelLoader;
 	import src.Utilities.SpriteSwapper;
 	
@@ -54,7 +55,7 @@ package src.Controllers
 			if (world == null) return;
 			
 			LevelLoader.dispatcher.addEventListener(LevelLoader.EVENT_LOADING_COMPLETE, onLevelLoaded);
-			LevelLoader.loadLevel("Level000", world, combatContainer);
+			LevelLoader.loadLevel("Level000Chunk000", world, combatContainer);
 			
 			//SpriteSwapper.dispatcher.addEventListener(SpriteSwapper.EVENT_LOADING_COMPLETE, onLevelAtlasLoaded);
 			//SpriteSwapper.loadSWFs(["LevelAtlas000.swf"]);
@@ -136,7 +137,55 @@ package src.Controllers
 		{	// called once level is done loading
 			level.addEventListener(EVENT_CHARACTER_ENTITY_CLICKED, onCharacterEntityClicked);
 			level.addEventListener(EVENT_ADD_INVENTORY, onInventoryAddEvent);
+			
+			if (LevelLoader.loadedLevelType == LevelLoader.LEVEL_TYPE_CINEMATIC)
+			{
+				level.addEventListener(Event.ENTER_FRAME, onCinematicFrameTick);
+			}
 		} // end of function initLevelListeners
+		
+		private function onCinematicFrameTick(event:Event)
+		{
+			// Check for dialogue
+			if (level.currentFrameLabel && level.currentFrameLabel.indexOf("Dialogue") > -1)
+			{
+				level.stop();
+				level.removeEventListener(Event.ENTER_FRAME, onCinematicFrameTick);
+				
+				var diagController:MovieClip = playerController.uiController.getUIElement("dialogue");
+				diagController.addEventListener(DialogueController.EVENT_DIALOGUE_COMPLETE, onCinematicDialogueComplete);
+				
+				if (diagController == null) return;
+				
+				var dialogueEntryStr:String = level.currentFrameLabel.split(":")[1]; // grabs actual dialogue entry name
+				trace ("dialogue entry string: " + dialogueEntryStr);
+				var dialogue:Array = DialogueUtility.getDialogueEntry(dialogueEntryStr);
+				
+				playerController.uiController.show("dialogue");
+				
+				diagController.playDialogueEntry(dialogue);
+			}
+			// Check for end
+			if (level.currentFrame == level.totalFrames)
+			{
+				trace("end of cinematic");
+				level.stop();
+				level.removeEventListener(Event.ENTER_FRAME, onCinematicFrameTick);
+				
+				//Load next level
+				LevelLoader.loadLevel(LevelLoader.queuedNextLevel, world, combatContainer);
+			}
+		}
+		
+		private function onCinematicDialogueComplete(event:Event)
+		{
+			var diagController:MovieClip = playerController.uiController.getUIElement("dialogue");
+			diagController.removeEventListener(DialogueController.EVENT_DIALOGUE_COMPLETE, onCinematicDialogueComplete);
+			playerController.uiController.hide("dialogue");
+			
+			level.play();
+			level.addEventListener(Event.ENTER_FRAME, onCinematicFrameTick);
+		}
 		
 		private function onCharacterEntityClicked(event:EventWithData):void
 		{

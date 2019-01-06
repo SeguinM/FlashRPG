@@ -21,6 +21,8 @@
 		
 		// CONTSTS
 		public static const EVENT_LOADING_COMPLETE:String = "onAllSWFsComplete";
+		public static const LEVEL_TYPE_GAMEPLAY:String = "gameplay";
+		public static const LEVEL_TYPE_CINEMATIC:String = "cinematic";
 		
 		// VARIABLES-------------------------------------------------------------------------------------------------------
 		
@@ -36,6 +38,8 @@
 		private static var combatContainer:MovieClip;
 		
 		private static var queuedAsset:String = "";
+		public static var loadedLevelType:String = "";                                   // Loaded level type (cinematic, gameplay)
+		public static var queuedNextLevel:String = "";                                   // Next level queued up (for cinematics)
 		private static var queuedLevelInstanceXML:XML = null;                            // queued level XML file
 		
 		
@@ -52,6 +56,7 @@
 		
 		public static function loadLevel(newLevelName:String, $worldContainer:MovieClip, $combatContainer:MovieClip):void
 		{
+			trace("LOAD_LEVEL");
 			worldContainer = $worldContainer;
 			combatContainer = $combatContainer;
 			
@@ -87,14 +92,21 @@
 			} // end of for loop
 			
 			// null check!
-			if (levelInstanceXML == null) return;
-			
-			trace ("Post instance null check");
+			if (levelInstanceXML == null)
+			{
+				throw new Error("Unable to find level XML!");
+			}
 			
 			// Time to load relevant atlas!
 			if (levelInstanceXML.elements("file") && levelInstanceXML.elements("asset"))
 			{
 				queuedAsset = levelInstanceXML.asset;
+				loadedLevelType = levelInstanceXML.type;
+				
+				if (levelInstanceXML.elements("nextLevel"))
+				{
+					queuedNextLevel = levelInstanceXML.nextLevel;
+				}
 				SpriteSwapper.dispatcher.addEventListener(SpriteSwapper.EVENT_LOADING_COMPLETE, onLevelFileLoaded);
 				SpriteSwapper.loadSWFs([levelInstanceXML.file]);
 			} // end of if statement
@@ -120,43 +132,47 @@
 			
 			if (newLevel == null || worldContainer == null) return;
 			
+			worldContainer.removeChildren();
 			worldContainer.addChild(newLevel);
 			newLevel.x = 0;
 			newLevel.y = 0;
 			newLevel.name = "level";
 			
-			var newPlayer:MovieClip = SpriteSwapper.getSprite("WorldPlayerEntity");
-			
-			if (newPlayer == null) return;
-			
-			worldContainer.addChild(newPlayer);
-			
-			newPlayer.x = stageRef.stageWidth / 2;
-			newPlayer.y = stageRef.stageHeight / 2;
-			newPlayer.name = "player";
-			
-			if (playerController == null || worldController == null) return;
-			
-			playerController.isMovable = true;
-			playerController.playerGraphic = worldController.player;
-			
-			var playerGraphic:MovieClip = SpriteSwapper.getSprite("Character_Luigi");
-			
-			// null check!
-			if (playerGraphic == null) return;
-			
-			// clear out any children
-			while (worldController.player.numChildren > 0)
-				worldController.player.removeChildAt(0);
-			
-			worldController.player.addChild(playerGraphic);
-			
-			playerGraphic.scaleX = 0.5;
-			playerGraphic.scaleY = 0.5;
-			
-			playerGraphic.y = 0 + (playerGraphic.height / 2);
-			
-			setLevelEntityData();
+			if (loadedLevelType == LEVEL_TYPE_GAMEPLAY)
+			{
+				var newPlayer:MovieClip = SpriteSwapper.getSprite("WorldPlayerEntity");
+				
+				if (newPlayer == null) return;
+				
+				worldContainer.addChild(newPlayer);
+				
+				newPlayer.x = stageRef.stageWidth / 2;
+				newPlayer.y = stageRef.stageHeight / 2;
+				newPlayer.name = "player";
+				
+				if (playerController == null || worldController == null) return;
+				
+				playerController.isMovable = true;
+				playerController.playerGraphic = worldController.player;
+				
+				var playerGraphic:MovieClip = SpriteSwapper.getSprite("Character_Luigi");
+				
+				// null check!
+				if (playerGraphic == null) return;
+				
+				// clear out any children
+				while (worldController.player.numChildren > 0)
+					worldController.player.removeChildAt(0);
+				
+				worldController.player.addChild(playerGraphic);
+				
+				playerGraphic.scaleX = 0.5;
+				playerGraphic.scaleY = 0.5;
+				
+				playerGraphic.y = 0 + (playerGraphic.height / 2);
+				
+				setLevelEntityData();
+			}
 			
 			// clear queuedAsset
 			queuedAsset = "";

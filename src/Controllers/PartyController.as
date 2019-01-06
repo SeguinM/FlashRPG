@@ -26,6 +26,12 @@ package src.Controllers
 		
 		public var characterDataManager:CharacterDataManager;          // character data manager
 		
+		public static const PARTY_TYPE_ACTIVE:String = "active";       // active party type enum
+		public static const PARTY_TYPE_INACTIVE:String = "inactive";   // inactive party type enum
+		public static const PARTY_TYPE_ALL:String = "all";             // active AND inactive party type enum
+		
+		private static const ACTIVE_PARTY_LIMIT:int = 4;               // Number of characters allowed in active party
+		
 		
 		
 		
@@ -42,8 +48,16 @@ package src.Controllers
 		{
 			var array:Array = getArrayType(type);
 			
+			// If our active party limit is full, we revert to the inactive party
+			if (type == PARTY_TYPE_ACTIVE && array.length > ACTIVE_PARTY_LIMIT)
+			{
+				array = getArrayType(PARTY_TYPE_INACTIVE);
+			}
+			
 			if (array == null)
-				array = [];
+			{
+				throw new Error("Unable to retrieve the proper Party Type");
+			}
 				
 			array.push(character);
 
@@ -59,9 +73,9 @@ package src.Controllers
 			// DO STUFF
 		} // end of function removeItem
 		
-		public function removeAll(type:String = "all"):void
+		public function removeAll(type:String = PARTY_TYPE_ALL):void
 		{
-			if (type == "all")
+			if (type == PARTY_TYPE_ALL)
 			{
 				party_active = [];
 				party_inactive = [];
@@ -132,7 +146,7 @@ package src.Controllers
 		{
 			var char:Character = characterDataManager.generateNewCharacter("Luigi", 5) as Character;
 			
-			addItem("active", char);
+			addItem(PARTY_TYPE_ACTIVE, char);
 		} // end of function generateDefaultCharacter
 		
 		private function generateDefaultInventory():void
@@ -150,10 +164,10 @@ package src.Controllers
 			
 			switch(type)
 			{
-				case "active":
+				case PARTY_TYPE_ACTIVE:
 					ret = party_active;
 					break;
-				case "inactive":
+				case PARTY_TYPE_INACTIVE:
 					ret = party_inactive;
 					break;
 				default:

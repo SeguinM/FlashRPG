@@ -158,6 +158,7 @@ package src.Controllers
 			switch(direction)
 			{
 				case "left":
+					trace("RUNNING LEFT! " + MOVEMENT_SPEED);
 					newPos.x -= MOVEMENT_SPEED;
 					newWorldPos.x += MOVEMENT_SPEED;
 					widthMargin.x -= $playerGraphic.width / 2;

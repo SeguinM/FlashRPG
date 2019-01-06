@@ -7,11 +7,20 @@
 	
 	<filename>LevelList</filename>
 	
+	<!-- LEVEL 000 CHUNK 000 -->
+	<level id="Level000Chunk000">
+		<file>LevelAtlas000.swf</file>
+		<asset>Level000Chunk000</asset>
+		<type>cinematic</type>
+		<nextLevel>Level000</nextLevel>
+	</level>
+	
 	<!-- LEVEL 000: MUSHROOM KINGDOM CHUNK A -->
 	<level id="Level000">
 		<file>LevelAtlas000.swf</file>
 		<asset>Level000</asset>
 		<combatBG>Level000_combat</combatBG>
+		<type>gameplay</type>
 		
 		<!-- Entity: World random encounter volume 1 -->
 		<entity id="encounterVolume001" type="EncounterVolume" encounterRate="0.3">
